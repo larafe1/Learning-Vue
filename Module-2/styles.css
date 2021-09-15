@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green-lighter: #e0f2f1;
+  --green-darker: #00897b;
+  --gray-border: #ccc;
+}
+
+body {
+  font-family: monospace;
+}
+
+#div__app-main {
+  width: 800px;
+  height: 650px;
+
+  margin: 30px auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+
+  border: 1px solid var(--green-darker);
+  border-radius: 5px;
+
+  background: var(--green-lighter);
+  font-size: 22px;
+  line-height: 3rem;
+}
+
+.div__separator {
+  width: 100%;
+
+  margin: 15px 0;
+
+  border-top: 1px solid var(--green-darker);
+}
+
+.div__input--container {
+  margin-top: 15px;
+}

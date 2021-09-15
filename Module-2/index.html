@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js" defer></script>
+    <title>Learning Vue.js</title>
+  </head>
+  <body>
+    <div id="div__app-main">
+      <div class="div__input--container">
+        <p>Learning about v-if and v-for</p>
+        <input type="text" v-model="courseGoals" />
+        <button @click="handleAddCourseGoals">Add</button>
+        <p v-if="goals.length === 0">
+          No course goals have been added yet! Try add one.
+        </p>
+        <ul v-else>
+          <li
+            v-for="(goals, index) in goals"
+            @click="handleRemoveCourseGoals(index)"
+            :key="goals"
+          >
+            {{ index }}: {{ goals }}
+          </li>
+        </ul>
+      </div>
+      <div class="div__separator"></div>
+      <p>Iterating through an object using v-for</p>
+      <ul>
+        <li
+          v-for="(value, key, index) in {name: 'John Doe', age: 25}"
+          :key="value"
+        >
+          {{ key }}: {{ value }} - {{ index }}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
