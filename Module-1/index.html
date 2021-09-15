@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js" defer></script>
+    <title>Learning Vue.js</title>
+  </head>
+  <body>
+    <div id="div__app-main">
+      <p v-html="renderTxt"></p>
+      <p>Learn more <a v-bind:href="vueLink">about Vue</a></p>
+      <div class="div__separator"></div>
+
+      <p>Course goal: {{ getRandomTxt() }}</p>
+      <p>Random number: {{ randomNumber }}</p>
+      <p>{{ strInLowerCase }} - {{ strToUpperCase }}</p>
+      <div class="div__separator"></div>
+
+      <div class="div__button--counter">
+        <span v-once>Initial value: {{ counter }}</span>
+        <span>Current value: {{ counter }}</span>
+        <button v-on:click="addCounter">Add</button>
+      </div>
+      <div class="div__separator"></div>
+
+      <div class="div__input--name">
+        <!-- <input type="text" v-bind:value="name" v-on:input="setName" /> -->
+        <!-- Shortcut to v-bind:value and v-on:input -->
+        <input type="text" v-model="name" />
+        <!-- <button v-on:click="resetName">Reset</button> -->
+        <!-- Shortcut to v-on:click -->
+        <button @click="resetName">Reset</button>
+        <p>Your name: {{ name }}</p>
+      </div>
+      <div class="div__separator"></div>
+
+      <div class="div__box--container">
+        <div
+          class="div__box-a"
+          v-bind:class="{box__active: boxASelected}"
+          @click="boxSelected('A')"
+        ></div>
+        <!-- <div v-bind:class="{box__active: boxSelected}"></div> -->
+        <!-- Shortcut to v-bind:class -->
+        <div
+          class="div__box-b"
+          :class="{box__active: boxBSelected}"
+          @click="boxSelected('B')"
+        ></div>
+        <!-- If we have a multiple class assignments, we could also work with just one dynamic class, but instead pass in array. -->
+        <div
+          :class="['div__box-c', {box__active: boxCSelected}]"
+          @click="boxSelected('C')"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>
