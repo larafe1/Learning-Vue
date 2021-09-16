@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js" defer></script>
+    <title>Learning Vue.js</title>
+  </head>
+  <body>
+    <div id="div__app-main">
+      <div class="div__input">
+        <h3>Learning about refs</h3>
+        <h4>Input some text</h4>
+        <input type="text" ref="inputText" />
+        <button @click="handleSetText">Set</button>
+        <h4>{{ displayText }}</h4>
+      </div>
+    </div>
+  </body>
+</html>
