@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Slayer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monster Slayer</h1>
+    </header>
+    <div id="game">
+      <section id="monster" class="container">
+        <h2>Monster Health</h2>
+        <div class="healthbar">
+          <div class="healthbar__value" :style="monsterHealthBarStyles"></div>
+        </div>
+      </section>
+      <section id="player" class="container">
+        <h2>Your Health</h2>
+        <div class="healthbar">
+          <div class="healthbar__value" :style="playerHealthBarStyles"></div>
+        </div>
+      </section>
+      <section id="controls" v-if="!isGameOver">
+        <button @click="handleAttackMonster">ATTACK</button>
+        <button
+          @click="handleSpecialAttackMonster"
+          :disabled="specialAttackAvailable"
+        >
+          SPECIAL ATTACK
+        </button>
+        <button @click="handleHealPlayer">HEAL</button>
+        <button @click="handlePlayerSurrender">SURRENDER</button>
+      </section>
+      <section class="container" v-else>
+        <h2>Game Over!</h2>
+        <h3>{{ gameWinner }}</h3>
+        <button @click="handleStartNewGame">NEW GAME</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul>
+          <li v-for="currentLog in battleLogs" :key="currentLog">
+            {{ currentLog }}
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
